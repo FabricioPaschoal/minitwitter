@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MINITWITTWER</title>
+    <script type="text/javascript">
+      function contadorCaracteres(){
+        var max = new Number();
+        max = 140;
+        var digitado = document.getElementById('campoTexto').value.length;
+        var valor = new Number();
+        valor = max - digitado;
+
+        if(valor > 0){
+          document.getElementById('restante').innerHTML = "Caracteres restantes: " + valor;
+          document.getElementById('sb').disabled = '';
+        }else {
+          document.getElementById('restante').innerHTML = "Caracteres restantes: " + 0;
+          document.getElementById('sb').disabled = 'disabled';
+        }
+      }
+
+
+
+    </script>
+
+    <style media="screen">
+      .campoTexto{
+        text-align: center;
+
+      }
+
+      form {
+        text-align: center;
+        color: #a09898;
+        border: 20px solid white;
+      }
+
+      body{
+        background-color: #00acec;
+      }
+
+      .centro{
+        text-align: center;
+        background-color: white;
+        width: 620px;
+        border: 2px solid black;
+        margin: auto;
+
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="centro">
+
+
+      <form action="" method="get">
+        <textarea maxlength="140" on onclick="contadorCaracteres();" onblur="contadorCaracteres();" onkeypress="contadorCaracteres();"  onkeydown="contadorCaracteres()" on rows="8" cols="80" id="campoTexto"></textarea>
+        <input type="submit" value="Enviar" id="sb" onclick="exibeTexto();" onclick="pause()" />
+        <div id="restante" >Caracteres restantes: 140</div>
+        <div id="post"  ></div>
+        <div id="BREAK" pause()></div>
+        <script type="text/javascript">
+        function exibeTexto(){
+          var txt = document.getElementById('campoTexto').value;
+          document.getElementById('post').innerHTML = "</br>O TEXTO ENVIADO FOI: </br></br>" + txt;
+
+          //alert("O texto enviado foi: \n" + txt);
+        }
+        function pause(){
+          break;
+        }
+        </script>
+      </form>
+    </div>
+  </body>
+</html>
